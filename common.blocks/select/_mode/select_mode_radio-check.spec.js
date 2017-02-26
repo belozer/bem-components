@@ -89,12 +89,15 @@ describe('select_mode_radio-check', function() {
         });
 
         it('should add/remove control according to value', function() {
-            var control = select._elem('control').domElem;
+            var control = select.findChildElem('control').domElem;
+
+            dom.contains(select.domElem, control).should.be.true;
 
             select.setVal(undefined);
             dom.contains(select.domElem, control).should.be.false;
 
             select.setVal(1);
+            control = select.findChildElem('control').domElem;
             dom.contains(select.domElem, control).should.be.true;
         });
 
